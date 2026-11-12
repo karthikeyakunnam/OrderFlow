@@ -1,4 +1,4 @@
-# CartNova Architecture
+# OrderFlow Architecture
 
 ## Services
 
@@ -57,6 +57,6 @@ The gateway validates JWTs. Services also validate JWTs for direct/local access.
 
 ## Known trade-offs
 
-CartNova intentionally avoids a full distributed transaction coordinator. The order workflow is eventually consistent across services and relies on transactions within each service plus idempotent event handling.
+OrderFlow intentionally avoids a full distributed transaction coordinator. The order workflow is eventually consistent across services and relies on transactions within each service plus idempotent event handling.
 
 Order and Inventory Services use a transactional outbox. Business changes and outgoing events are committed together, then a retrying publisher delivers the events to Kafka. Consumers use durable idempotency records and deterministic derived event IDs so a crash between processing and acknowledgement does not duplicate business effects.

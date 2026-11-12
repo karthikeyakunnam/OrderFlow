@@ -34,7 +34,7 @@ func ProductServiceGetProductHandler(server any, ctx context.Context, decoder fu
 
 	info := &grpc.UnaryServerInfo{
 		Server:     server,
-		FullMethod: "/cartnova.product.ProductService/GetProduct",
+		FullMethod: "/orderflow.product.ProductService/GetProduct",
 	}
 	handler := func(ctx context.Context, request any) (any, error) {
 		return server.(ProductServiceServer).GetProduct(ctx, request.(*structpb.Struct))
@@ -53,7 +53,7 @@ func UserServiceGetUserHandler(server any, ctx context.Context, decoder func(any
 
 	info := &grpc.UnaryServerInfo{
 		Server:     server,
-		FullMethod: "/cartnova.user.UserService/GetUser",
+		FullMethod: "/orderflow.user.UserService/GetUser",
 	}
 	handler := func(ctx context.Context, request any) (any, error) {
 		return server.(UserServiceServer).GetUser(ctx, request.(*structpb.Struct))
@@ -62,7 +62,7 @@ func UserServiceGetUserHandler(server any, ctx context.Context, decoder func(any
 }
 
 var ProductService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cartnova.product.ProductService",
+	ServiceName: "orderflow.product.ProductService",
 	HandlerType: (*ProductServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -73,7 +73,7 @@ var ProductService_ServiceDesc = grpc.ServiceDesc{
 }
 
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cartnova.user.UserService",
+	ServiceName: "orderflow.user.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -93,7 +93,7 @@ type ProductServiceClient struct {
 
 func (c *ProductServiceClient) GetProduct(ctx context.Context, request *structpb.Struct, options ...grpc.CallOption) (*structpb.Struct, error) {
 	response := new(structpb.Struct)
-	err := c.connection.Invoke(ctx, "/cartnova.product.ProductService/GetProduct", request, response, options...)
+	err := c.connection.Invoke(ctx, "/orderflow.product.ProductService/GetProduct", request, response, options...)
 	return response, err
 }
 
@@ -107,6 +107,6 @@ type UserServiceClient struct {
 
 func (c *UserServiceClient) GetUser(ctx context.Context, request *structpb.Struct, options ...grpc.CallOption) (*structpb.Struct, error) {
 	response := new(structpb.Struct)
-	err := c.connection.Invoke(ctx, "/cartnova.user.UserService/GetUser", request, response, options...)
+	err := c.connection.Invoke(ctx, "/orderflow.user.UserService/GetUser", request, response, options...)
 	return response, err
 }

@@ -12,13 +12,13 @@ RUN CGO_ENABLED=0 GOOS=linux go build -p=${GO_BUILD_PARALLELISM} -trimpath -ldfl
 
 FROM alpine:3.20
 
-RUN addgroup -S cartnova && adduser -S cartnova -G cartnova
+RUN addgroup -S orderflow && adduser -S orderflow -G orderflow
 WORKDIR /app
 
 COPY --from=builder /out/service /app/service
 COPY migrations /app/migrations
 
-USER cartnova
+USER orderflow
 EXPOSE 8080
 
 ENTRYPOINT ["/app/service"]

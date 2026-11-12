@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/auth"
-	"github.com/ShivamNayak-dev/cartnova/internal/httpx"
 	"github.com/gorilla/websocket"
+	"github.com/karthikeyakunnam/OrderFlow/internal/auth"
+	"github.com/karthikeyakunnam/OrderFlow/internal/httpx"
 )
 
 type Handler struct {

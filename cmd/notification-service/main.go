@@ -8,12 +8,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/auth"
-	"github.com/ShivamNayak-dev/cartnova/internal/config"
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
-	"github.com/ShivamNayak-dev/cartnova/internal/httpx"
-	"github.com/ShivamNayak-dev/cartnova/internal/logging"
-	"github.com/ShivamNayak-dev/cartnova/internal/notification"
+	"github.com/karthikeyakunnam/OrderFlow/internal/auth"
+	"github.com/karthikeyakunnam/OrderFlow/internal/config"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
+	"github.com/karthikeyakunnam/OrderFlow/internal/httpx"
+	"github.com/karthikeyakunnam/OrderFlow/internal/logging"
+	"github.com/karthikeyakunnam/OrderFlow/internal/notification"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -35,7 +35,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	databaseName := config.String("MONGODB_DATABASE", "cartnova_notification")
+	databaseName := config.String("MONGODB_DATABASE", "orderflow_notification")
 	repository := notification.NewRepository(mongoClient.Database(databaseName))
 	if err := repository.EnsureIndexes(ctx); err != nil {
 		logger.Error("notification indexes failed", "error", err)
@@ -54,7 +54,7 @@ func main() {
 	mux.Handle("GET /ws", auth.Middleware(authService, http.HandlerFunc(handler.WebSocket)))
 
 	brokers := []string{config.String("KAFKA_BROKERS", "localhost:29092")}
-	consumer := events.NewConsumer(brokers, "order-events", "cartnova-notification")
+	consumer := events.NewConsumer(brokers, "order-events", "orderflow-notification")
 	defer consumer.Close()
 
 	go func() {

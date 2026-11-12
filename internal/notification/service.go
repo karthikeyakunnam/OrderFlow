@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 

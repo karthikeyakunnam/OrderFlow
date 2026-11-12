@@ -8,15 +8,15 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/auth"
-	"github.com/ShivamNayak-dev/cartnova/internal/config"
-	"github.com/ShivamNayak-dev/cartnova/internal/database"
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
-	"github.com/ShivamNayak-dev/cartnova/internal/grpcapi"
-	"github.com/ShivamNayak-dev/cartnova/internal/httpx"
-	"github.com/ShivamNayak-dev/cartnova/internal/logging"
-	"github.com/ShivamNayak-dev/cartnova/internal/order"
-	"github.com/ShivamNayak-dev/cartnova/internal/outbox"
+	"github.com/karthikeyakunnam/OrderFlow/internal/auth"
+	"github.com/karthikeyakunnam/OrderFlow/internal/config"
+	"github.com/karthikeyakunnam/OrderFlow/internal/database"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
+	"github.com/karthikeyakunnam/OrderFlow/internal/grpcapi"
+	"github.com/karthikeyakunnam/OrderFlow/internal/httpx"
+	"github.com/karthikeyakunnam/OrderFlow/internal/logging"
+	"github.com/karthikeyakunnam/OrderFlow/internal/order"
+	"github.com/karthikeyakunnam/OrderFlow/internal/outbox"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -26,7 +26,7 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
-	pool, err := database.Connect(ctx, config.String("DATABASE_URL", "postgres://postgres:root@localhost:5432/cartnova_order?sslmode=disable"))
+	pool, err := database.Connect(ctx, config.String("DATABASE_URL", "postgres://postgres:root@localhost:5432/orderflow_order?sslmode=disable"))
 	if err != nil {
 		logger.Error("database connection failed", "error", err)
 		os.Exit(1)
@@ -74,7 +74,7 @@ func main() {
 	mux.Handle("GET /orders/{id}", auth.Middleware(authService, http.HandlerFunc(handler.GetByID)))
 	mux.Handle("PUT /orders/{id}/status", auth.Middleware(authService, http.HandlerFunc(handler.UpdateStatus)))
 
-	consumer := events.NewConsumer([]string{config.String("KAFKA_BROKERS", "localhost:29092")}, order.InventoryEventsTopic, "cartnova-order")
+	consumer := events.NewConsumer([]string{config.String("KAFKA_BROKERS", "localhost:29092")}, order.InventoryEventsTopic, "orderflow-order")
 	defer consumer.Close()
 
 	go func() {

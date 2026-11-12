@@ -9,13 +9,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/auth"
-	"github.com/ShivamNayak-dev/cartnova/internal/config"
-	"github.com/ShivamNayak-dev/cartnova/internal/database"
-	"github.com/ShivamNayak-dev/cartnova/internal/grpcapi"
-	"github.com/ShivamNayak-dev/cartnova/internal/httpx"
-	"github.com/ShivamNayak-dev/cartnova/internal/logging"
-	"github.com/ShivamNayak-dev/cartnova/internal/product"
+	"github.com/karthikeyakunnam/OrderFlow/internal/auth"
+	"github.com/karthikeyakunnam/OrderFlow/internal/config"
+	"github.com/karthikeyakunnam/OrderFlow/internal/database"
+	"github.com/karthikeyakunnam/OrderFlow/internal/grpcapi"
+	"github.com/karthikeyakunnam/OrderFlow/internal/httpx"
+	"github.com/karthikeyakunnam/OrderFlow/internal/logging"
+	"github.com/karthikeyakunnam/OrderFlow/internal/product"
 	"github.com/redis/go-redis/v9"
 	"google.golang.org/grpc"
 )
@@ -25,7 +25,7 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
-	databaseURL := config.String("DATABASE_URL", "postgres://postgres:root@localhost:5432/cartnova_product?sslmode=disable")
+	databaseURL := config.String("DATABASE_URL", "postgres://postgres:root@localhost:5432/orderflow_product?sslmode=disable")
 	pool, err := database.Connect(ctx, databaseURL)
 	if err != nil {
 		logger.Error("database connection failed", "error", err)

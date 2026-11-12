@@ -11,7 +11,7 @@ printf '\n'
 printf 'Registering test customer...\n'
 REGISTER_RESPONSE=$(curl -fsS -X POST "$BASE_URL/api/v1/auth/register" \
   -H 'Content-Type: application/json' \
-  -d "{\"name\":\"CartNova Customer\",\"email\":\"customer-${RUN_ID}@example.com\",\"password\":\"Customer@123\"}")
+  -d "{\"name\":\"OrderFlow Customer\",\"email\":\"customer-${RUN_ID}@example.com\",\"password\":\"Customer@123\"}")
 printf '%s\n' "$REGISTER_RESPONSE"
 CUSTOMER_TOKEN=$(curl -fsS -X POST "$BASE_URL/api/v1/auth/login" \
   -H 'Content-Type: application/json' \
@@ -21,7 +21,7 @@ CUSTOMER_TOKEN=$(curl -fsS -X POST "$BASE_URL/api/v1/auth/login" \
 printf 'Logging in admin...\n'
 LOGIN_RESPONSE=$(curl -fsS -X POST "$BASE_URL/api/v1/auth/login" \
   -H 'Content-Type: application/json' \
-  -d '{"email":"admin@cartnova.local","password":"password"}')
+  -d '{"email":"admin@orderflow.local","password":"password"}')
 ADMIN_TOKEN=$(printf '%s' "$LOGIN_RESPONSE" | python3 -c 'import json,sys; print(json.load(sys.stdin)["token"])')
 
 printf 'Creating category...\n'
@@ -73,4 +73,4 @@ if [ "$STATUS" = "CREATED" ]; then
   exit 1
 fi
 
-printf 'CartNova end-to-end smoke test passed.\n'
+printf 'OrderFlow end-to-end smoke test passed.\n'

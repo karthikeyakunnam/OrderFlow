@@ -1,4 +1,4 @@
-# CartNova Event Catalog
+# OrderFlow Event Catalog
 
 ## Kafka topics
 

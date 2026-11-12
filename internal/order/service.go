@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
-	"github.com/ShivamNayak-dev/cartnova/internal/grpcapi"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
+	"github.com/karthikeyakunnam/OrderFlow/internal/grpcapi"
 	"google.golang.org/protobuf/types/known/structpb"
 )
 

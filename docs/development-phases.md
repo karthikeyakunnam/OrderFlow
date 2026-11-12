@@ -1,4 +1,4 @@
-# CartNova Development Phases
+# OrderFlow Development Phases
 
 ## Phase 0 — Architecture
 

@@ -1,6 +1,6 @@
-# gRPC in CartNova
+# gRPC in OrderFlow
 
-CartNova uses gRPC for selected internal synchronous calls.
+OrderFlow uses gRPC for selected internal synchronous calls.
 
 The service contracts are documented in:
 

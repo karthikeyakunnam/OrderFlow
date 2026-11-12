@@ -7,14 +7,14 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/auth"
-	"github.com/ShivamNayak-dev/cartnova/internal/config"
-	"github.com/ShivamNayak-dev/cartnova/internal/database"
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
-	"github.com/ShivamNayak-dev/cartnova/internal/httpx"
-	"github.com/ShivamNayak-dev/cartnova/internal/inventory"
-	"github.com/ShivamNayak-dev/cartnova/internal/logging"
-	"github.com/ShivamNayak-dev/cartnova/internal/outbox"
+	"github.com/karthikeyakunnam/OrderFlow/internal/auth"
+	"github.com/karthikeyakunnam/OrderFlow/internal/config"
+	"github.com/karthikeyakunnam/OrderFlow/internal/database"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
+	"github.com/karthikeyakunnam/OrderFlow/internal/httpx"
+	"github.com/karthikeyakunnam/OrderFlow/internal/inventory"
+	"github.com/karthikeyakunnam/OrderFlow/internal/logging"
+	"github.com/karthikeyakunnam/OrderFlow/internal/outbox"
 	"net/http"
 )
 
@@ -23,7 +23,7 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
-	pool, err := database.Connect(ctx, config.String("DATABASE_URL", "postgres://postgres:root@localhost:5432/cartnova_inventory?sslmode=disable"))
+	pool, err := database.Connect(ctx, config.String("DATABASE_URL", "postgres://postgres:root@localhost:5432/orderflow_inventory?sslmode=disable"))
 	if err != nil {
 		logger.Error("database connection failed", "error", err)
 		os.Exit(1)
@@ -54,7 +54,7 @@ func main() {
 	mux.Handle("GET /inventory/{productID}", auth.Middleware(authService, http.HandlerFunc(handler.Get)))
 
 	go func() {
-		if err := service.ConsumeOrders(ctx, brokers, inventory.OrderEventsTopic, "cartnova-inventory"); err != nil && ctx.Err() == nil {
+		if err := service.ConsumeOrders(ctx, brokers, inventory.OrderEventsTopic, "orderflow-inventory"); err != nil && ctx.Err() == nil {
 			logger.Error("inventory consumer stopped", "error", err)
 			stop()
 		}

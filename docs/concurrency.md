@@ -1,6 +1,6 @@
-# CartNova Concurrency Design
+# OrderFlow Concurrency Design
 
-Concurrency is a first-class learning and implementation goal in CartNova.
+Concurrency is a first-class learning and implementation goal in OrderFlow.
 
 ## Goroutines
 

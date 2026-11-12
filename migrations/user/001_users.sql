@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS users (
 
 INSERT INTO users(name, email, password_hash, role)
 VALUES (
-    'CartNova Admin',
-    'admin@cartnova.local',
+    'OrderFlow Admin',
+    'admin@orderflow.local',
     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
     'ADMIN'
 )

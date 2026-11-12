@@ -2,7 +2,7 @@
 
 ## Inventory
 
-Inventory is the strongest consistency boundary in CartNova.
+Inventory is the strongest consistency boundary in OrderFlow.
 
 A reservation is handled inside a PostgreSQL transaction. `SELECT ... FOR UPDATE` serializes competing updates to the same product row.
 
@@ -36,4 +36,4 @@ OrderCancelled
 
 ## Why not a distributed transaction?
 
-Distributed transactions would add complexity and reduce the educational value of the project. CartNova instead demonstrates local ACID transactions plus asynchronous event coordination.
+Distributed transactions would add complexity and reduce the educational value of the project. OrderFlow instead demonstrates local ACID transactions plus asynchronous event coordination.

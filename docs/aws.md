@@ -1,6 +1,6 @@
 # AWS Deployment Plan
 
-CartNova is intentionally designed so local development works with Docker Compose while AWS can replace infrastructure components with managed services.
+OrderFlow is intentionally designed so local development works with Docker Compose while AWS can replace infrastructure components with managed services.
 
 ## Recommended mapping
 

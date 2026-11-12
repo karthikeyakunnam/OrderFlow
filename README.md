@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛒 CartNova
+# 🔄 OrderFlow
 
 **Event-Driven E-Commerce Microservices Platform in Go**
 
@@ -20,7 +20,7 @@
 
 ## 📖 Overview
 
-**CartNova** is a practical, production-oriented e-commerce backend built entirely in Go. It isn't a toy CRUD app — it's a deliberately scoped **microservices system** where every technology earns its place in the architecture, and every line of code is written to be *read and understood*, not generated or compressed into clever one-liners.
+**OrderFlow** is a practical, production-oriented e-commerce backend built entirely in Go. It isn't a toy CRUD app — it's a deliberately scoped **microservices system** where every technology earns its place in the architecture, and every line of code is written to be *read and understood*, not generated or compressed into clever one-liners.
 
 The project exists to demonstrate the exact skill set expected of a backend engineer working on distributed systems:
 
@@ -29,7 +29,7 @@ The project exists to demonstrate the exact skill set expected of a backend engi
 - Solving real concurrency problems (not textbook ones) with goroutines, channels and database transactions
 - Keeping the system small enough to fully explain, end to end, in a single sitting
 
-CartNova intentionally ships with **five business services + one API Gateway** — no more. It skips Kubernetes, service mesh and distributed tracing platforms, not because they aren't valuable, but because adding them here would trade clarity for buzzwords.
+OrderFlow intentionally ships with **five business services + one API Gateway** — no more. It skips Kubernetes, service mesh and distributed tracing platforms, not because they aren't valuable, but because adding them here would trade clarity for buzzwords.
 
 ---
 
@@ -200,7 +200,7 @@ Concepts that would feel artificial if forced into a business feature are instea
 ## 📁 Project Structure
 
 ```text
-cartnova/
+orderflow/
 ├── cmd/                     # Entry point for each service
 │   ├── gateway/
 │   ├── user-service/
@@ -350,9 +350,9 @@ user: root
 password: root
 ```
 
-**Seeded CartNova admin account**
+**Seeded OrderFlow admin account**
 ```text
-email: admin@cartnova.local
+email: admin@orderflow.local
 password: password
 ```
 
@@ -374,7 +374,7 @@ password: password
 
 ## 🎯 Design Principle
 
-Every piece of infrastructure in CartNova is here for a specific reason, not for the sake of a longer tech-stack list:
+Every piece of infrastructure in OrderFlow is here for a specific reason, not for the sake of a longer tech-stack list:
 
 - **REST** — public API contract
 - **gRPC** — low-overhead synchronous internal calls
@@ -399,6 +399,6 @@ This project is licensed under the MIT License.
 
 <div align="center">
 
-Built by [Shivam Nayak](https://github.com/ShivamNayak-dev)
+Built by [Karthikeya Unnam](https://github.com/karthikeyakunnam)
 
 </div>

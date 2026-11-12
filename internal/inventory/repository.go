@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
-	"github.com/ShivamNayak-dev/cartnova/internal/outbox"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
+	"github.com/karthikeyakunnam/OrderFlow/internal/outbox"
 )
 
 var ErrNotFound = errors.New("inventory not found")

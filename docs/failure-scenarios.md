@@ -1,6 +1,6 @@
 # Failure Scenarios to Study
 
-CartNova is intentionally suitable for failure-oriented reverse engineering.
+OrderFlow is intentionally suitable for failure-oriented reverse engineering.
 
 ## Kafka unavailable
 

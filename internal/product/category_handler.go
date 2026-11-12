@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/httpx"
+	"github.com/karthikeyakunnam/OrderFlow/internal/httpx"
 )
 
 type CategoryHandler struct {

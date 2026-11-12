@@ -7,7 +7,7 @@ import (
 )
 
 func TestDecodeJSONRejectsTrailingValues(t *testing.T) {
-	request := httptest.NewRequest("POST", "/", strings.NewReader(`{"name":"cartnova"} {"extra":true}`))
+	request := httptest.NewRequest("POST", "/", strings.NewReader(`{"name":"orderflow"} {"extra":true}`))
 	var target struct {
 		Name string `json:"name"`
 	}

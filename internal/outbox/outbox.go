@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
 )
 
 type pendingEvent struct {

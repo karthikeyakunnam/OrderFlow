@@ -11,12 +11,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/auth"
-	"github.com/ShivamNayak-dev/cartnova/internal/config"
-	"github.com/ShivamNayak-dev/cartnova/internal/httpx"
-	"github.com/ShivamNayak-dev/cartnova/internal/logging"
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
+	"github.com/karthikeyakunnam/OrderFlow/internal/auth"
+	"github.com/karthikeyakunnam/OrderFlow/internal/config"
+	"github.com/karthikeyakunnam/OrderFlow/internal/httpx"
+	"github.com/karthikeyakunnam/OrderFlow/internal/logging"
 )
 
 func main() {

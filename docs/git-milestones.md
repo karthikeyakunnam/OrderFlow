@@ -3,7 +3,7 @@
 Use small, explainable commits instead of one giant project commit.
 
 ```text
-chore: initialize cartnova project
+chore: initialize orderflow project
 chore: add local infrastructure
 feat: add user service
 feat: add jwt authentication
@@ -19,7 +19,7 @@ feat: add notification service
 feat: add websocket order updates
 test: add service and concurrency tests
 chore: add production hardening
-chore: dockerize cartnova
+chore: dockerize orderflow
 docs: add aws deployment guide
 docs: document architecture and events
 ```

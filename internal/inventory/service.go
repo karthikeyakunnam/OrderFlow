@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ShivamNayak-dev/cartnova/internal/events"
+	"github.com/karthikeyakunnam/OrderFlow/internal/events"
 )
 
 const OrderEventsTopic = "order-events"

@@ -1,4 +1,4 @@
-# CartNova API
+# OrderFlow API
 
 The public API is exposed through the API Gateway on `http://localhost:8080`.
 
@@ -18,7 +18,7 @@ Authorization: Bearer <token>
 The seeded local admin is:
 
 ```text
-email: admin@cartnova.local
+email: admin@orderflow.local
 password: password
 ```
 
